@@ -1,0 +1,9 @@
+GET http://localhost:8080/ping
+
+###
+POST http://localhost:8080/_v1/category
+Content-Type: application/json
+
+{
+  "Name":"Golang"
+}

@@ -4,11 +4,12 @@ import (
 	"log"
 
 	"github.com/IcaroSilvaFK/go-categories-msvc/internal/entities"
+	"github.com/IcaroSilvaFK/go-categories-msvc/internal/repositories"
 )
 
 // algo q seja privado ao pacote colocar minusculo
 type createCategoryUseCase struct{
-	// db instance
+	repository repositories.ICategoryRepository
 }
 
 
@@ -26,6 +27,11 @@ func (useCase *createCategoryUseCase) Execute(name string) error{
 
 	// TODO: persist entity to db
 	log.Fatalln(category)
+	err = useCase.repository.Save(category)
+
+	if err != nil {
+		return err
+	}
 
 	return nil
 }
