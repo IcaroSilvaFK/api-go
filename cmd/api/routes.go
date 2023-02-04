@@ -13,8 +13,10 @@ func CategoryRoutes(ginInstance *gin.Engine) {
 	inMemoryCategoryRepository := repositories.NewInMemoryCategoryRepository()
 
 	router.POST("/category",func (ctx *gin.Context) {
-	
-
 		controllers.CreateCategory(ctx,	inMemoryCategoryRepository)
+	})
+
+	router.GET("/categories",func (ctx *gin.Context) {
+		controllers.ShowCategories(ctx,	inMemoryCategoryRepository)
 	})
 }

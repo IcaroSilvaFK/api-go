@@ -13,7 +13,7 @@ func  NewInMemoryCategoryRepository() *inMemoryCategoryRepository {
 }	
 
 func (r *inMemoryCategoryRepository) Save(category *entities.Category) error {
-
+	// add an ID before saving
 	r.db = append(r.db,category)
 
 	return nil

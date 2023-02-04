@@ -1,8 +1,6 @@
 package use_cases
 
 import (
-	"log"
-
 	"github.com/IcaroSilvaFK/go-categories-msvc/internal/entities"
 	"github.com/IcaroSilvaFK/go-categories-msvc/internal/repositories"
 )
@@ -25,7 +23,7 @@ func (useCase *createCategoryUseCase) Execute(name string) error{
 		return err
 	}
 
-	log.Fatalln(category)
+	//TODO: verify if category name already exists
 	err = useCase.repository.Save(category)
 
 	if err != nil {
