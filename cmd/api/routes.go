@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/IcaroSilvaFK/go-categories-msvc/cmd/api/controllers"
+	"github.com/IcaroSilvaFK/go-categories-msvc/internal/repositories"
 	"github.com/gin-gonic/gin"
 )
 
@@ -9,5 +10,11 @@ func CategoryRoutes(ginInstance *gin.Engine) {
 
 	router := ginInstance.Group("/_v1") 
 
-	router.POST("/category",controllers.CreateCategory)
+	inMemoryCategoryRepository := repositories.NewInMemoryCategoryRepository()
+
+	router.POST("/category",func (ctx *gin.Context) {
+	
+
+		controllers.CreateCategory(ctx,	inMemoryCategoryRepository)
+	})
 }

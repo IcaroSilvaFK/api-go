@@ -13,8 +13,8 @@ type createCategoryUseCase struct{
 }
 
 
-func NewCreateCategoryUseCase() *createCategoryUseCase {
-	return &createCategoryUseCase{}
+func NewCreateCategoryUseCase(repository repositories.ICategoryRepository) *createCategoryUseCase {
+	return &createCategoryUseCase{repository}
 }
 
 func (useCase *createCategoryUseCase) Execute(name string) error{
@@ -25,7 +25,6 @@ func (useCase *createCategoryUseCase) Execute(name string) error{
 		return err
 	}
 
-	// TODO: persist entity to db
 	log.Fatalln(category)
 	err = useCase.repository.Save(category)
 
