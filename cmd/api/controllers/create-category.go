@@ -24,7 +24,7 @@ func CreateCategory(ctx *gin.Context,repository repositories.ICategoryRepository
 		})
 		return
 	}
-
+	
 	useCase := use_cases.NewCreateCategoryUseCase(repository)
 
 	err := useCase.Execute((body.Name))

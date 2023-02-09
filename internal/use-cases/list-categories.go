@@ -23,5 +23,4 @@ func (useCase *listCategoriesUseCase) Execute() ([]*entities.Category,error) {
 	}
 
 	return categories, nil
-
 }

@@ -15,6 +15,8 @@ func NewCreateCategoryUseCase(repository repositories.ICategoryRepository) *crea
 	return &createCategoryUseCase{repository}
 }
 
+
+
 func (useCase *createCategoryUseCase) Execute(name string) error{
 
 	category, err := entities.NewCategory(name)

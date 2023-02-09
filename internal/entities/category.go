@@ -16,6 +16,7 @@ type Category struct {
 
 func NewCategory(name string)( *Category, error){
 
+
 	category := &Category{
 		Name: name,
 		CreateAt: time.Now(),
